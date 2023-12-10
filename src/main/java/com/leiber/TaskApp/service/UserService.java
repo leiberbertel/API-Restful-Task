@@ -1,13 +1,11 @@
 package com.leiber.TaskApp.service;
 
-import com.leiber.TaskApp.auth.jwt.JwtService;
 import com.leiber.TaskApp.exception.UserNotFoundException;
 import com.leiber.TaskApp.persistence.entity.dto.User;
 import com.leiber.TaskApp.persistence.entity.UserEntity;
 import com.leiber.TaskApp.persistence.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 
