@@ -2,6 +2,7 @@ package com.leiber.TaskApp.service;
 
 
 import com.leiber.TaskApp.persistence.entity.dto.TaskRequest;
+import com.leiber.TaskApp.persistence.entity.dto.TaskUpdateState;
 import com.leiber.TaskApp.persistence.entity.dto.TaskUpdated;
 import com.leiber.TaskApp.persistence.entity.TaskEntity;
 import com.leiber.TaskApp.persistence.entity.UserEntity;
@@ -75,6 +76,12 @@ public class TaskService {
             throw new RuntimeException("Task not found");
         }
         this.taskRepository.deleteById(id);
+    }
+
+    public void updateTaskState(TaskUpdateState taskUpdateState) {
+        TaskEntity task = taskRepository.findById(taskUpdateState.getTaskId()).orElseThrow();
+        task.setState(taskUpdateState.getState());
+        taskRepository.save(task);
     }
 
 }

@@ -2,12 +2,14 @@ package com.leiber.TaskApp.web.controller;
 
 import com.leiber.TaskApp.auth.jwt.JwtService;
 import com.leiber.TaskApp.persistence.entity.dto.TaskRequest;
+import com.leiber.TaskApp.persistence.entity.dto.TaskUpdateState;
 import com.leiber.TaskApp.persistence.entity.dto.TaskUpdated;
 import com.leiber.TaskApp.persistence.entity.TaskEntity;
 import com.leiber.TaskApp.service.TaskService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import jakarta.persistence.PreUpdate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -83,5 +85,13 @@ public class TaskController {
     public ResponseEntity<?> delete(@PathVariable int id) {
         this.taskService.delete(id);
         return ResponseEntity.ok(Map.of("message", "Tarea eliminada con éxito"));
+    }
+
+    @Operation(summary = "Update state of task")
+    @ApiResponse(responseCode = "200", description = "updated")
+    @PatchMapping("/update-state")
+    public ResponseEntity<?> updateTaskState(@RequestBody TaskUpdateState taskUpdateState) {
+        taskService.updateTaskState(taskUpdateState);
+        return ResponseEntity.ok().build();
     }
 }
