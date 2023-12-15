@@ -6,7 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Data
 @Builder
@@ -20,8 +20,8 @@ public class TaskRequest {
     @Schema(description = "Task description", example = "Learn code")
     private String description;
 
-    @Schema(description = "Time to alert for the task", example = "2023-11-07T16:30:00")
-    private LocalDateTime alertTime;
+    @Schema(description = "Time to alert for the task", example = "2023-11-07")
+    private LocalDate alertTime;
 
     @Schema(description = "Task state", example = "true/false")
     private Boolean state;

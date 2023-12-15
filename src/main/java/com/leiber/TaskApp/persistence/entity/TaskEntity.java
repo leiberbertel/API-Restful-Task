@@ -7,7 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "task")
@@ -30,9 +30,9 @@ public class TaskEntity {
     @Schema(description = "task description", example = "this task is important")
     private String description;
 
-    @Column(columnDefinition = "TIMESTAMP")
-    @Schema(description = "Time to alert for the task", example = "2023-11-07T16:30:00")
-    private LocalDateTime alertTime;
+    @Column(columnDefinition = "DATE")
+    @Schema(description = "Time to alert for the task", example = "2023-11-07")
+    private LocalDate alertTime;
 
     @Schema(description = "Task status", example = "false/true")
     private Boolean state;
