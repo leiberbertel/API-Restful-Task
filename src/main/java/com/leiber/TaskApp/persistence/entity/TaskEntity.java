@@ -31,10 +31,6 @@ public class TaskEntity {
     private String description;
 
     @Column(columnDefinition = "TIMESTAMP")
-    @Schema(description = "Time to start task", example = "2023-11-07T14:30:00")
-    private LocalDateTime startTime;
-
-    @Column(columnDefinition = "TIMESTAMP")
     @Schema(description = "Time to alert for the task", example = "2023-11-07T16:30:00")
     private LocalDateTime alertTime;
 

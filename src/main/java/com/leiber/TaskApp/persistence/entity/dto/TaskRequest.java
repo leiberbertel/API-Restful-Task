@@ -14,7 +14,6 @@ import java.time.LocalDateTime;
 public class TaskRequest {
     private String title;
     private String description;
-    private LocalDateTime startTime;
     private LocalDateTime alertTime;
     private Boolean state;
     private Integer userId;

@@ -42,7 +42,6 @@ public class TaskService {
         TaskEntity taskEntity = new TaskEntity();
         taskEntity.setTitle(request.getTitle());
         taskEntity.setDescription(request.getDescription());
-        taskEntity.setStartTime(request.getStartTime());
         taskEntity.setAlertTime(request.getAlertTime());
         taskEntity.setState(request.getState());
         taskEntity.setUser(userEntity);
